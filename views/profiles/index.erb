@@ -1,0 +1,28 @@
+
+
+<h2>Welcome <%= @user.username %>!</h2>
+
+<form action="/new_entry" method="get">
+  <input type="submit" value="Add New Page">
+</form>
+
+<br>
+
+<% @pages.reverse_each do |page| %>
+	<h3><%= page.header %></h3>
+	<p><%= page.article %></p>
+	<p><i>tag: <%= page.tag %></i></p>
+	<p style="font-size: 0.7em"><i>Updated: <%= page.updated_at %></i></p>
+	<form action="/edit_entry/<%= page.id %>" method="get">
+  	<input type="submit" value="Edit Entry">
+	</form>
+	<form action="/entry/<%= page.id %>" method="post">
+		<input type="hidden" name="_method" value="delete">
+  	<input type="submit" value="Delete Entry">
+	</form>
+	<p>---------------------------</p>
+<% end %>
+
+
+
+

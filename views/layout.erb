@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Best Blog Ever</title>
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <script src='/javascripts/jquery.js'></script>
+  <script src='/javascripts/scripts.js'></script>
+</head>
+<body>
+<div style="margin-left: 100px">
+  <% if session[:current_user] %>
+    <form action="/sessions" method='post'>
+      <input type="hidden" name='_method' value='delete'>
+      <input type="submit" value='Log-Out'>
+    </form>
+
+    <form action="/profiles">
+      <input type="submit" value ='Profile'>
+    </form>
+  <% else %>
+    <!-- <a href="/users/new">Join?</a> -->
+    <a href="/sessions/new">Login</a>
+  <% end %>
+
+  <%= yield %>
+</div>
+</body>
+</html>

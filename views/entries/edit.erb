@@ -1,0 +1,8 @@
+<h2>Edit Entry</h2>
+
+<form action="/edit_entry/<%= @entry.id %>" method="post">
+	<input type="text" name="header" value="<%= @entry.header %>">
+	<input type="text" name="article" value="<%= @entry.article %>">
+	<input type="text" name="tag" value="<%= @entry.tag %>">
+  <input type="submit" value="Edit Entry">
+</form>
