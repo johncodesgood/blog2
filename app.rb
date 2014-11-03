@@ -1,19 +1,19 @@
-require 'bundler'
-Bundler.require
-require 'pry'
+# require 'bundler'
+# Bundler.require
+# require 'pry'
 
-require_relative 'connection'
-require_relative 'models/user'
-require_relative 'models/page'
-
-
-enable :sessions
+# require_relative 'connection'
+# require_relative 'models/user'
+# require_relative 'models/page'
 
 
-get '/' do
-  @pages = Page.all
-  erb :index
-end
+# enable :sessions
+
+
+# get '/' do
+#   @pages = Page.all
+#   erb :index
+# end
 
 get '/new_entry' do
   erb :'entries/new'

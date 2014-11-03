@@ -2,28 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Best Blog Ever</title>
-  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <title>Dumbler</title>
+  <link rel="stylesheet" href="/stylesheets/base.css">
+  <link rel="stylesheet" href="/stylesheets/layout.css">
+  <link rel="stylesheet" href="/stylesheets/skeleton.css">
   <script src='/javascripts/jquery.js'></script>
   <script src='/javascripts/scripts.js'></script>
 </head>
 <body>
-<div style="margin-left: 100px">
-  <% if session[:current_user] %>
-    <form action="/sessions" method='post'>
-      <input type="hidden" name='_method' value='delete'>
-      <input type="submit" value='Log-Out'>
-    </form>
-
-    <form action="/profiles">
-      <input type="submit" value ='Profile'>
-    </form>
-  <% else %>
-    <!-- <a href="/users/new">Join?</a> -->
-    <a href="/sessions/new">Login</a>
-  <% end %>
-
-  <%= yield %>
-</div>
+  <div class="container">
+    <div class="sixteen columns">
+      <% if current_user %>
+        <%= erb :"partials/_user_navigation" %>
+      <% else %>
+        <%= erb :"partials/_non_user_navigation" %>
+      <% end %>
+      <hr>
+      <br>
+    </div>
+    <%= yield %>
+  </div>
 </body>
 </html>

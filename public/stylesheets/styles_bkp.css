@@ -1,0 +1,19 @@
+
+body{
+  background-color: lightblue;
+}
+
+
+.miniuser{
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+
+.miniuser img{
+  float: right;
+  width: 7em;
+}

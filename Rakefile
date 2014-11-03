@@ -4,6 +4,8 @@ Bundler.require
 require_relative 'connection'
 require_relative 'models/user'
 require_relative 'models/page'
+require_relative 'models/tag'
+
 require 'sinatra/activerecord/rake'
 
 
@@ -12,13 +14,13 @@ namespace :db do
   desc 'create blog database'
   task :create_db do
     conn = PG::Connection.open()
-    conn.exec('CREATE DATABASE blog;')
+    conn.exec('CREATE DATABASE blog_db;')
     conn.close
   end
   desc 'drop blog database'
   task :drop_db do
     conn = PG::Connection.open()
-    conn.exec('DROP DATABASE blog;')
+    conn.exec('DROP DATABASE blog_db;')
     conn.close
   end
 

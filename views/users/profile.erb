@@ -1,0 +1,42 @@
+
+<h3 style="display: inline-block">Welcome <%= current_user.firstname %>!</h3>
+<p></p>
+<form action="/entries/new" method="get">
+  <input type="submit" value="Add New Post">
+</form>
+<br>
+	<% current_user.pages.reverse_each do |page| %>
+		<table>
+	 <!-- <h3 style="display: inline-block"><%= page.header %></h3> -->
+	 <!-- <tr><th><a href="#" onclick="toggle_visibility('<%= page.header %>');" style="text-size: 16px"><%= page.header %></a></th></tr> -->
+	 <!-- <div id="<%= page.header %>"> -->
+	  <tr><th><%= page.header %></th></tr>
+		<tr><td><%= page.article %></td></tr>
+		<tr><td><i>Updated: <%= page.updated_at %></i></td></tr>
+		<tr><td><% page.tagposts.each do |tagpost| %>
+				#<%= @tags.find_by(id: tagpost.tag_id).name %>
+		<% end %></td></tr>
+		<tr><td><form action="/entries/edit/<%= page.id %>" method="get" style="display: inline-block">
+  		<input type="submit" value="Edit Entry">
+		</form>
+		<form action="/entries/<%= page.id %>" method="post" style="display: inline-block">
+			<input type="hidden" name="_method" value="delete">
+  		<input type="submit" value="Delete Entry">
+		</form></td></tr>
+		<!-- </div> -->
+		</table>
+		<br>
+		<br>
+	<% end %>
+<script type="text/javascript">
+<!--
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+-->
+</script>
+

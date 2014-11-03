@@ -1,9 +1,12 @@
-<!-- <h2>New User</h2>
-
-<form action="/users" method="post">
+<h3>Welcome</h3>
+<br>
+<form id='new-user' action="/users" method="post">
+	<input type="text" name="user[firstname]" placeholder='...first name'>
+	<input type="text" name="user[lastname]" placeholder='...last name'>
+	<input type="text" name="user[title]" placeholder='...blog title'>
   <input type="text" name="user[username]" placeholder='...username'>
-  <input type="text" name="user[secret]" placeholder='...secret'>
-  <input type="text" name="user[avatar]" placeholder='...avatar url'>
-  <input type="password" name="password" placeholder='...password'>
-  <input type="submit">
-</form> -->
+  <input type="password" name="password" placeholder="...password">
+  <input type="password" name="password_verification" placeholder="...password again">
+  <br>
+  <input type="submit" value="Sign-Up">
+</form>

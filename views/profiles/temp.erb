@@ -1,0 +1,27 @@
+
+<h1>Welcome to the Best Blog Ever (BBE)!</h1>
+
+<br>
+<% current_user.@pages.reverse_each do |page| %>
+	<a href="#" style="display: inline-block" onclick="toggle_visibility('<%= page.header %>');"><%= page.header %></a>
+	<div id="<%= page.header %>">
+<!-- 		<h4><%= page.header %></h4> -->
+		<p><%= page.article %></p>
+		<p><i>tag: <%= page.tag %></i></p>
+		<p style="font-size: 0.7em"><i>Updated: <%= page.updated_at %></i></p>
+		<p>---------------------------</p>
+	</div>
+	<br>
+<% end %>
+
+<script type="text/javascript">
+<!--
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+//-->
+</script>

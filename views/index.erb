@@ -1,11 +1,36 @@
 
-<h1>Welcome to the Best Blog Ever (BBE)!</h1>
-
+<div class="sixteen columns">
+<h1>Welcome to Dumbler!</h1>
 <br>
-<% @pages.reverse_each do |page| %>
-	<h4><%= page.header %></h4>
-	<p><%= page.article %></p>
-	<p><i>tag: <%= page.tag %></i></p>
-	<p style="font-size: 0.7em"><i>Updated: <%= page.updated_at %></i></p>
-	<p>---------------------------</p>
-<% end %>
+<hr>
+<br>
+<br>
+</div>
+<div class="eight columns">
+	<h3>Top Blogs:</h3>
+	<br>
+	<br>
+	<% @users.each do |user| %>
+		<h4><a href="/users/profile/<%= user.id %>" style="text-decoration: none; color: #084B8A"><%= user.title %></a></h4>
+		<br>
+	<% end %>
+	<br>
+</div>
+
+
+<div class="eight columns">
+	<h3>Top Tags:</h3>
+	<br>
+	<br>
+	<% @tags.each do |tag| %>
+		<a href="/tags/<%= tag.id %>" style="text-decoration: none; color: #084B8A; font-size: 18px"><i>#<%= tag.name %>&nbsp;&nbsp;</i></a>
+	<% end %>
+	<br>
+</div>
+
+
+
+
+
+
+

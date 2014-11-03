@@ -1,0 +1,30 @@
+
+<h3><%= @user.title %></h3>
+<br>
+<% @user.pages.reverse_each do |page| %>
+		<table>
+	 <!-- <h3 style="display: inline-block"><%= page.header %></h3> -->
+	 <!-- <tr><th><a href="#" onclick="toggle_visibility('<%= page.header %>');" style="text-size: 16px"><%= page.header %></a></th></tr> -->
+	 <!-- <div id="<%= page.header %>"> -->
+	  <tr><th><%= page.header %></th></tr>
+		<tr><td><%= page.article %></td></tr>
+		<tr><td><i>Updated: <%= page.updated_at %></i></td></tr>
+		<tr><td><% page.tagposts.each do |tagpost| %>
+				#<a href="/tags/<%= @user.id %>/<%= @tags.find(tagpost.tag_id).id %>" style="text-decoration: none"><%= @tags.find(tagpost.tag_id).name %></a>
+		<% end %></td></tr>
+		<!-- </div> -->
+		</table>
+		<br>
+		<br>
+	<% end %>
+<script type="text/javascript">
+<!--
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+-->
+</script>

@@ -1,21 +1,21 @@
 
 <hr>
-<h3 style="display: inline-block">Welcome <%= @user.username %>!</h3>
+<h2 style="display: inline-block">Welcome <%= current_user.username %>!</h2>
 
-<form action="/new_entry" method="get" style="display: inline-block; margin-left: 20px">
+<form action="/entries/new" method="get" style="display: inline-block; margin-left: 20px">
   <input type="submit" value="Add New Post">
 </form>
 
 <br>
 
-<% @pages.reverse_each do |page| %>
-	<!-- <h3 style="display: inline-block"><%= page.header %></h3> -->
-	<a href="#" onclick="toggle_visibility('<%= page.header %>');"><%= page.header %></a>
-	<div id="<%= page.header %>">
-		<form action="/edit_entry/<%= page.id %>" method="get" style="display: inline-block; margin-left: 20px">
+	<% current_user.@pages.reverse_each do |page| %>
+	 <h3 style="display: inline-block"><%= page.header %></h3>
+	 <a href="#" onclick="toggle_visibility('<%= page.header %>');"><%= page.header %></a>
+	 <div id="<%= page.header %>">
+ 		<form action="/entries/edit/<%= page.id %>" method="get" style="display: inline-block; margin-left: 20px">
   		<input type="submit" value="Edit Entry">
 		</form>
-		<form action="/entry/<%= page.id %>" method="post" style="display: inline-block; margin-left: 20px">
+		<form action="/entries/<%= page.id %>" method="post" style="display: inline-block; margin-left: 20px">
 			<input type="hidden" name="_method" value="delete">
   		<input type="submit" value="Delete Entry">
 		</form>
@@ -35,9 +35,6 @@
        else
           e.style.display = 'block';
     }
-//-->
-</script>
-
-
-
+-->
+</script> -->
 

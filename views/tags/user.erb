@@ -1,0 +1,20 @@
+<h3>#<%= @tag.name %></h3>
+<br>
+<h3><%= @user.title %></h3>
+<br>
+<% @tagposts.each do |tagpost| %>
+	<table>
+		<% if @pages.find(tagpost.page_id).user_id == @user.id %>
+			<tr><th><%= @users.find(@pages.find(tagpost.page_id).user_id).title %></th></tr>	
+	  	<tr><th><%= @pages.find(tagpost.page_id).header %></th></tr>
+			<tr><td><%= @pages.find(tagpost.page_id).article %></td></tr>
+			<tr><td><i>Updated: <%= @pages.find(tagpost.page_id).updated_at %></i></td></tr>
+			<tr><td>
+				<% @pages.find(tagpost.page_id).tagposts.each do |tagpost| %>
+				#<a href="/tags/<%= @user.id %>/<%= @tags.find(tagpost.tag_id).id %>" style="text-decoration: none"><%= @tags.find_by(id: tagpost.tag_id).name %></a>
+			<% end %></td></tr>
+		<% end %>
+	</table>
+	<br>
+	<br>
+<% end %>
